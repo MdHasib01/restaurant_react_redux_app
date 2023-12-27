@@ -39,7 +39,6 @@ const products = [
 
 export default function Cart({ open, setOpen }) {
   const carts = useSelector((state) => state.cart);
-  console.log("carts:", carts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
@@ -71,7 +70,7 @@ export default function Cart({ open, setOpen }) {
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-[#fff] shadow-xl">
-                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                    <div className="flex-1 overflow-y-auto h-full px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
                           Shopping cart
@@ -90,91 +89,98 @@ export default function Cart({ open, setOpen }) {
                         </div>
                       </div>
 
-                      <div className="mt-8">
-                        <div className="flow-root">
-                          <ul
-                            role="list"
-                            className="-my-6 divide-y divide-gray-200"
-                          >
-                            {carts.cart.map((cart) => (
-                              <li key={cart.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src="images/img_pngitem41084.png"
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>{cart.food_name}</h3>
-                                      <p className="ml-4">{cart.price}</p>
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      {cart.description}
-                                    </p>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between items-center text-sm">
-                                    <p className="text-gray-500">
-                                      Qty: {cart?.quantity}
-                                    </p>
-                                    <div className="bg-gray-51 flex flex-row items-center justify-between rounded-[16.5px] w-[42%]">
-                                      <Button
-                                        className="cursor-pointer h-[33px] rounded-[50%] text-center w-[33px]"
-                                        shape="round"
-                                        color="white_A700"
-                                        variant="fill"
-                                        onClick={() =>
-                                          dispatch(
-                                            decreaseItemQuantity(cart.id)
-                                          )
-                                        }
-                                      >
-                                        -
-                                      </Button>
-                                      <Text
-                                        className="text-[16.62px] text-gray-900"
-                                        size="txtPoppinsRegular1662"
-                                      >
-                                        {cart.quantity}
-                                      </Text>
-                                      <Button
-                                        className="cursor-pointer h-[33px] rounded-[50%] text-center w-[33px]"
-                                        shape="round"
-                                        color="white_A700"
-                                        variant="fill"
-                                        onClick={() =>
-                                          dispatch(
-                                            increaseItemQuantity(cart.id)
-                                          )
-                                        }
-                                      >
-                                        +
-                                      </Button>
-                                    </div>
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                        onClick={() => {
-                                          toast.success(
-                                            "Item removed successfully!"
-                                          );
-                                          dispatch(removeItem(cart.id));
-                                          
-                                        }}
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
+                      {!carts.cart.length > 0 ? (
+                        <div className="h-full flex justify-center items-center">
+                          <div className="text-center  my-5 text-red-700 font-bold bg-red-200 w-full p-6">
+                            Cart is Empty!
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div className="mt-8">
+                          <div className="flow-root">
+                            <ul
+                              role="list"
+                              className="-my-6 divide-y divide-gray-200"
+                            >
+                              {carts.cart.map((cart) => (
+                                <li key={cart.id} className="flex py-6">
+                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                    <img
+                                      src="images/img_pngitem41084.png"
+                                      className="h-full w-full object-cover object-center"
+                                    />
+                                  </div>
+
+                                  <div className="ml-4 flex flex-1 flex-col">
+                                    <div>
+                                      <div className="flex justify-between text-base font-medium text-gray-900">
+                                        <h3>{cart.food_name}</h3>
+                                        <p className="ml-4">{cart.price}</p>
+                                      </div>
+                                      <p className="mt-1 text-sm text-gray-500">
+                                        {cart.description}
+                                      </p>
+                                    </div>
+                                    <div className="flex flex-1 items-end justify-between items-center text-sm">
+                                      <p className="text-gray-500">
+                                        Qty: {cart?.quantity}
+                                      </p>
+                                      <div className="bg-gray-51 flex flex-row items-center justify-between rounded-[16.5px] w-[42%]">
+                                        <Button
+                                          className="cursor-pointer h-[33px] rounded-[50%] text-center w-[33px]"
+                                          shape="round"
+                                          color="white_A700"
+                                          variant="fill"
+                                          onClick={() =>
+                                            dispatch(
+                                              decreaseItemQuantity(cart.id)
+                                            )
+                                          }
+                                        >
+                                          -
+                                        </Button>
+                                        <Text
+                                          className="text-[16.62px] text-gray-900"
+                                          size="txtPoppinsRegular1662"
+                                        >
+                                          {cart.quantity}
+                                        </Text>
+                                        <Button
+                                          className="cursor-pointer h-[33px] rounded-[50%] text-center w-[33px]"
+                                          shape="round"
+                                          color="white_A700"
+                                          variant="fill"
+                                          onClick={() =>
+                                            dispatch(
+                                              increaseItemQuantity(cart.id)
+                                            )
+                                          }
+                                        >
+                                          +
+                                        </Button>
+                                      </div>
+                                      <div className="flex">
+                                        <button
+                                          type="button"
+                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                          onClick={() => {
+                                            toast.success(
+                                              "Item removed successfully!"
+                                            );
+                                            dispatch(removeItem(cart.id));
+                                          }}
+                                        >
+                                          Remove
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -195,7 +201,7 @@ export default function Cart({ open, setOpen }) {
                           </a>
                         ) : (
                           <a
-                            onClick={() => navigate("/checkout")}
+                            onClick={() => toast.error("No item in Cart!")}
                             className="flex items-center justify-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-[#fff] shadow-sm hover:bg-gray-700"
                           >
                             Checkout

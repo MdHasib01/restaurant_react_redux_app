@@ -37,7 +37,7 @@ const Items = ({ selected }) => {
       )
       .map((dish) => (
         <Fade bottom>
-          <Item key={dish._id} dish={dish} />
+          <Item key={dish.id} dish={dish} />
         </Fade>
       ));
   }

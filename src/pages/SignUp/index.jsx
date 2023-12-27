@@ -3,24 +3,27 @@ import React, { useEffect, useState } from "react";
 import { Button, Img, Input, Text } from "components";
 import { useNavigate } from "react-router";
 import { useRegisterMutation } from "features/auth/authApi";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
-  const [register, { data, isLoading, error: responseError }] =
-    useRegisterMutation();
-  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const [register, { data, isLoading, error: responseError }] =
+    useRegisterMutation();
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
-  console.log("user:", user);
   useEffect(() => {
     if (responseError?.data) {
       setError(responseError.data);
+      toast.error(responseError.data);
     }
     if (data?.accessToken && data?.user) {
+      toast.success("Sign Up Successfully!");
       navigate("/");
     }
   }, [data, responseError, navigate]);
@@ -171,7 +174,7 @@ const SignUpPage = () => {
               </div>
               <div className="flex flex-col gap-12 items-center justify-start w-full">
                 <Button
-                  className="bg-orange-300 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full"
+                  className="bg-orange-300 hover:drop-shadow-xl duration-200 hover:border-orange-300 hover:text-orange-300 hover:bg-[#fff] border-2 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full"
                   onClick={handleRegister}
                 >
                   SIGN UP

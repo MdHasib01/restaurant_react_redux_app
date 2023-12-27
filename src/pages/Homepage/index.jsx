@@ -172,7 +172,7 @@ const HomepagePage = () => {
 
         <PopularMenu />
         <div className="flex flex-col items-center justify-start max-w-[1240px] mt-[156px] mx-auto md:px-5 w-full">
-          <Fade left>
+          <Fade bottom>
             <Text
               className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
               size="txtOpenSansRomanBold52"
@@ -184,79 +184,87 @@ const HomepagePage = () => {
             className="sm:flex-col flex-row font-poppins gap-10 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center mt-[60px] pb-3 w-full"
             orientation="horizontal"
           >
-            <div className="flex flex-1 flex-col gap-[52px] items-center justify-start w-full">
-              <div className="bg-gray-900_6c h-[549px] relative rounded-[50px] w-full">
-                <Img
-                  className="absolute h-[549px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
-                  src="images/img_image1.png"
-                  alt="imageOne"
-                />
+            <Fade bottom>
+              <div className="flex flex-1 flex-col gap-[52px] items-center justify-start w-full">
+                <div className="bg-gray-900_6c h-[549px] relative rounded-[50px] w-full">
+                  <Img
+                    className="absolute h-[549px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
+                    src="images/img_image1.png"
+                    alt="imageOne"
+                  />
+                </div>
+                <Text
+                  className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
+                  size="txtPoppinsSemiBold25"
+                >
+                  Betran Komar
+                </Text>
+                <Text
+                  className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
+                  size="txtPoppinsRegular25Gray501"
+                >
+                  Head chef
+                </Text>
               </div>
-              <Text
-                className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                size="txtPoppinsSemiBold25"
-              >
-                Betran Komar
-              </Text>
-              <Text
-                className="sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
-                size="txtPoppinsRegular25Gray501"
-              >
-                Head chef
-              </Text>
-            </div>
-            <div className="flex flex-1 flex-col items-center justify-start w-full">
-              <div className="bg-gradient1  md:h-[541px] h-[549px] pt-2 relative rounded-[50px] w-full">
-                <Img
-                  className="absolute h-[541px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
-                  src="images/img_image3.png"
-                  alt="imageThree"
-                />
+            </Fade>
+            <Fade bottom>
+              <div className="flex flex-1 flex-col items-center justify-start w-full">
+                <div className="bg-gradient1  md:h-[541px] h-[549px] pt-2 relative rounded-[50px] w-full">
+                  <Img
+                    className="absolute h-[541px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
+                    src="images/img_image3.png"
+                    alt="imageThree"
+                  />
+                </div>
+                <Text
+                  className="mt-[54px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
+                  size="txtPoppinsSemiBold25"
+                >
+                  Ferry Sauwi
+                </Text>
+                <Text
+                  className="mt-[51px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
+                  size="txtPoppinsRegular25Gray501"
+                >
+                  Chef
+                </Text>
               </div>
-              <Text
-                className="mt-[54px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                size="txtPoppinsSemiBold25"
-              >
-                Ferry Sauwi
-              </Text>
-              <Text
-                className="mt-[51px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
-                size="txtPoppinsRegular25Gray501"
-              >
-                Chef
-              </Text>
-            </div>
-            <div className="flex flex-1 flex-col items-center justify-start w-full">
-              <div className="bg-lime-900_6c h-[549px] relative rounded-[50px] w-full">
-                <Img
-                  className="absolute h-[549px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
-                  src="images/img_image2.png"
-                  alt="imageTwo"
-                />
+            </Fade>
+            <Fade bottom>
+              <div className="flex flex-1 flex-col items-center justify-start w-full">
+                <div className="bg-lime-900_6c h-[549px] relative rounded-[50px] w-full">
+                  <Img
+                    className="absolute h-[549px] inset-[0] justify-center m-auto object-cover rounded-[50px] w-full"
+                    src="images/img_image2.png"
+                    alt="imageTwo"
+                  />
+                </div>
+                <Text
+                  className="mt-[52px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
+                  size="txtPoppinsSemiBold25"
+                >
+                  Iswan Dracho
+                </Text>
+                <Text
+                  className="mt-[54px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
+                  size="txtPoppinsRegular25Gray501"
+                >
+                  Chef
+                </Text>
               </div>
-              <Text
-                className="mt-[52px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-900"
-                size="txtPoppinsSemiBold25"
-              >
-                Iswan Dracho
-              </Text>
-              <Text
-                className="mt-[54px] sm:text-[21px] md:text-[23px] text-[25px] text-gray-501"
-                size="txtPoppinsRegular25Gray501"
-              >
-                Chef
-              </Text>
-            </div>
+            </Fade>
           </List>
-          <Button
-            className="cursor-pointer font-poppins font-semibold min-w-[235px] mt-[83px] text-center text-xl"
-            shape="round"
-            color="red_400"
-            size="lg"
-            variant="fill"
-          >
-            View all
-          </Button>
+          <Fade bottom>
+            <Button
+              className="cursor-pointer border-2 hover:border-red-400 hover:bg-[#fff] hover:text-red-400 duration-200 hover:drop-shadow-lg font-poppins font-semibold min-w-[235px] mt-[83px] text-center text-xl"
+              shape="round"
+              color="red_400"
+              size="lg"
+              variant="fill"
+            >
+              View all
+            </Button>
+          </Fade>
         </div>
         <div className="flex flex-col font-opensans gap-[50px] items-center justify-start mt-[120px] pt-4 md:px-5 w-[55%] md:w-full">
           <div className="flex flex-col items-center justify-start">
@@ -310,36 +318,38 @@ const HomepagePage = () => {
           </div>
         </div>
         <div className="bg-red-100 flex flex-col font-opensans items-center justify-end max-w-[1240px] mt-[120px] mx-auto p-[93px] md:px-5 rounded-[24px] w-full">
-          <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[77%] md:w-full">
-            <Text
-              className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
-              size="txtOpenSansRomanBold52"
-            >
-              Hungry? We are open now..
-            </Text>
-            <div className="flex sm:flex-col flex-row font-poppins gap-6 items-center justify-center w-[70%] md:w-full">
-              <Button
-                className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                onClick={() => navigate("/menu")}
-                shape="round"
-                color="red_400"
-                size="lg"
-                variant="fill"
+          <Fade bottom>
+            <div className="flex flex-col gap-12 items-center justify-start mt-[17px] w-[77%] md:w-full">
+              <Text
+                className="sm:text-[38px] md:text-[44px] text-[52px] text-gray-900"
+                size="txtOpenSansRomanBold52"
               >
-                Order now
-              </Button>
-              <Button
-                className="common-pointer cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                onClick={() => navigate("/reservation")}
-                shape="round"
-                color="white_A700_7f"
-                size="lg"
-                variant="fill"
-              >
-                Reservation
-              </Button>
+                Hungry? We are open now..
+              </Text>
+              <div className="flex sm:flex-col flex-row font-poppins gap-6 items-center justify-center w-[70%] md:w-full">
+                <Button
+                  className="common-pointer border-2 hover:border-red-400 hover:text-red-400 hover:bg-[#fff] duration-200 hover:drop-shadow-xl cursor-pointer font-semibold min-w-[232px] text-center text-xl"
+                  onClick={() => navigate("/menu")}
+                  shape="round"
+                  color="red_400"
+                  size="lg"
+                  variant="fill"
+                >
+                  Order now
+                </Button>
+                <Button
+                  className="common-pointer hover:drop-shadow-xl hover:bg-[#fff] border-2 hover:border-red-400 cursor-pointer border-red-200 font-semibold min-w-[232px] text-center text-xl"
+                  onClick={() => navigate("/reservation")}
+                  shape="round"
+                  color="red_400_19"
+                  size="lg"
+                  variant="fill"
+                >
+                  Reservation
+                </Button>
+              </div>
             </div>
-          </div>
+          </Fade>
         </div>
         <Footer className="bg-gray-901 flex font-poppins items-center justify-center mt-[120px] md:px-5 w-full" />
       </div>

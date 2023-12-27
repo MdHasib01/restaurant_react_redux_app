@@ -12,6 +12,7 @@ import Cart from "components/Cart";
 import { userLoggedIn, userLoggedOut } from "features/auth/authSlice";
 import useAuth from "hooks/useAuth";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -19,8 +20,8 @@ const Navbar = ({ activeNav }) => {
   const isLoggedin = useAuth();
 
   const dispatch = useDispatch();
-  console.log("usersss", dispatch(userLoggedIn()));
   const logout = () => {
+    toast.success("Logged Out Successfully!");
     dispatch(userLoggedOut());
     localStorage.clear();
   };
@@ -133,6 +134,7 @@ const Navbar = ({ activeNav }) => {
           )}
         </div>
       </div>
+
       <Button
         onClick={() => setOpen(true)}
         className={`cursor-pointer border hover:border-red-400 duration-200 hover:drop-shadow-xl hover:scale-105 flex h-[50px] items-center ${

@@ -21,24 +21,26 @@ const PopularMenu = () => {
       <div className="flex flex-col font-poppins gap-[50px] items-center justify-start w-full">
         <div className="flex sm:flex-col flex-row gap-7 items-center justify-between rounded-[16px] w-full">
           {foodCategories.map((category) => (
-            <Fade bottom><Button
-            onClick={() => setSelected(category)}
-            className={
-              category.toLowerCase() === selected.toLowerCase()
-                ? "cursor-pointer font-semibold min-w-[232px] text-center text-xl"
-                : "cursor-pointer min-w-[192px] text-center text-xl"
-            }
-            shape="round"
-            color={
-              category.toLowerCase() === selected.toLowerCase()
-                ? "red_400"
-                : "gray_400_63"
-            }
-            size="lg"
-            variant="fill"
-          >
-            {category}
-          </Button></Fade>
+            <Fade bottom>
+              <Button
+                onClick={() => setSelected(category)}
+                className={
+                  category.toLowerCase() === selected.toLowerCase()
+                    ? "cursor-pointer font-semibold min-w-[232px] border-2 hover:bg-red-600 duration-200 hover:drop-shadow-xl text-center text-xl"
+                    : "cursor-pointer min-w-[192px] text-center hover:drop-shadow-xl hover:font-bold hover:border-gray-300 border-2 text-xl"
+                }
+                shape="round"
+                color={
+                  category.toLowerCase() === selected.toLowerCase()
+                    ? "red_400"
+                    : "gray_400_63"
+                }
+                size="lg"
+                variant="fill"
+              >
+                {category}
+              </Button>
+            </Fade>
           ))}
         </div>
         <div className="flex flex-col gap-12 items-center justify-start w-full">

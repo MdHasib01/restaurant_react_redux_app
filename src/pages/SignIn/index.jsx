@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button, Img, Input, Text } from "components";
 import { useNavigate } from "react-router";
+import { useLoginMutation } from "features/auth/authApi";
+import toast from "react-hot-toast";
 
 const SigninPage = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({ email: "", password: "" });
+
+  const [error, setError] = useState("");
+
+  const [login, { data, isLoading, error: responseError }] = useLoginMutation();
+
+  useEffect(() => {
+    if (responseError?.data) {
+      setError(responseError.data);
+      toast.error(responseError.data);
+    }
+    if (data?.accessToken && data?.user) {
+      toast.success("Logged In Successfully!");
+      navigate("/");
+    }
+  }, [data, responseError, navigate]);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    setError("");
+
+    login({
+      email: user.email,
+      password: user.password,
+    });
+  };
   return (
     <>
       <div className="bg-red-50 flex flex-col font-inter items-start justify-start mx-auto md:px-10 sm:px-5 px-[90px] py-[106px] w-auto sm:w-full md:w-full">
@@ -29,7 +58,8 @@ const SigninPage = () => {
                   className="text-2xl md:text-[22px] text-bluegray-800 text-center sm:text-xl w-full"
                   size="txtInterBold24Bluegray800"
                 >
-                  Login to <span className="text-orange-500">F</span>oodio<span className="text-orange-500">.</span>
+                  Login to <span className="text-orange-500">F</span>oodio
+                  <span className="text-orange-500">.</span>
                 </Text>
                 <div className="flex flex-col gap-[49px] items-center justify-start w-full">
                   <div className="flex sm:flex-col flex-row gap-[42px] items-center justify-start w-full"></div>
@@ -43,7 +73,11 @@ const SigninPage = () => {
                           Email
                         </Text>
                         <Input
-                          name="email_One"
+                          name="email"
+                          value={user.email}
+                          onChange={(e) =>
+                            setUser({ ...user, email: e.target.value })
+                          }
                           placeholder="xyz@gmail.com"
                           className="p-0 placeholder:text-bluegray-400 sm:pr-5 text-base text-bluegray-400 text-left w-full"
                           wrapClassName="bg-white-A700 border border-indigo-50 border-solid flex pl-5 pr-[35px] py-[17px] rounded w-full"
@@ -65,7 +99,11 @@ const SigninPage = () => {
                           Password
                         </Text>
                         <Input
-                          name="password_One"
+                          name="email"
+                          value={user.password}
+                          onChange={(e) =>
+                            setUser({ ...user, password: e.target.value })
+                          }
                           placeholder="************"
                           className="p-0 placeholder:text-bluegray-400 sm:pr-5 text-base text-bluegray-400 text-left w-full"
                           wrapClassName="bg-white-A700 border border-indigo-50 border-solid flex pb-[18px] pl-5 pr-[35px] pt-[15px] rounded w-full"
@@ -98,7 +136,10 @@ const SigninPage = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-12 items-center justify-start w-full">
-                <Button className="bg-orange-300 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full">
+                <Button
+                  className="bg-orange-300 hover:drop-shadow-xl duration-200 hover:border-orange-300 hover:text-orange-300 hover:bg-[#fff] border-2 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full"
+                  onClick={handleLogin}
+                >
                   LOGIN
                 </Button>
                 <div className="flex flex-row gap-1 items-start justify-center w-full">

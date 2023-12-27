@@ -11,7 +11,6 @@ const getCartTotal = (state) => {
   let { totalQuantity, totalPrice } = state.cart.reduce(
     (cartTotal, cartItem) => {
       const { price, quantity } = cartItem;
-      console.log(price, quantity);
       const itemTotal = price * quantity;
       cartTotal.totalPrice += itemTotal;
       cartTotal.totalQuantity += quantity;

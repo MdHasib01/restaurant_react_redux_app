@@ -3,13 +3,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { addToCart } from "../../features/cart/cartSlice";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Item = ({ dish }) => {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
-  console.log(cart);
   return (
     <div className="bg-white-A700 hover:-translate-y-1 duration-200 hover:drop-shadow-xl flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
       <Img
@@ -62,7 +61,6 @@ const Item = ({ dish }) => {
           </Button>
         </div>
       </div>
-      <Toaster />
     </div>
   );
 };
