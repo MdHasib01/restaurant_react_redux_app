@@ -1,10 +1,14 @@
 import { apiSlice } from "../api/apiSlice";
 
-
 export const menusApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getDishes: builder.query({
-      query: () => "/dishes",
+      query: (pageNmber) => `/dishes/?_page=${pageNmber}`,
+      keepUnusedDataFor: 600,
+      providesTags: ["Dishes"],
+    }),
+    getAllDishes: builder.query({
+      query: () => `/dishes`,
       keepUnusedDataFor: 600,
       providesTags: ["Dishes"],
     }),
@@ -54,6 +58,7 @@ export const menusApi = apiSlice.injectEndpoints({
 });
 
 export const {
+  useGetAllDishesQuery,
   useGetDishesQuery,
   useGetDishQuery,
   useGetRelatedDishesQuery,

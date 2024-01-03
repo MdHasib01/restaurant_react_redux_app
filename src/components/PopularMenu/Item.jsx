@@ -13,7 +13,7 @@ const Item = ({ dish }) => {
     <div className="bg-white-A700 hover:-translate-y-1 duration-200 hover:drop-shadow-xl flex flex-1 flex-col gap-6 items-center justify-center p-[30px] sm:px-5 rounded-[40px] w-full">
       <Img
         className="h-[270px] hover:scale-110 duration-200 md:h-auto mt-1.5 object-cover w-[270px]"
-        src="images/img_pngitem41084.png"
+        src={dish.image}
         alt="PngItem41084"
       />
       <div className="flex flex-col items-center justify-end mb-1.5 pt-[17px] w-full">

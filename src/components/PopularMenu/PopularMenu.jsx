@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { foodCategories } from "../../utils/data";
 import Items from "./Items";
 import Fade from "react-reveal/Fade";
+import Pagination from "components/Pagination";
 
 const PopularMenu = () => {
   const [selected, setSelected] = useState("All Categories");
@@ -52,52 +53,7 @@ const PopularMenu = () => {
 
           {/* <--------------- Pagination ---------------> */}
 
-          <div className="flex flex-row font-inter gap-2.5 items-center justify-center w-1/5 md:w-full">
-            <Img
-              className="h-[15px] w-[15px]"
-              src="images/img_arrowleft_black_900.svg"
-              alt="arrowleft"
-            />
-            <div className="flex flex-row gap-2.5 items-center justify-start w-[78%]">
-              <Button
-                className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                color="gray_900"
-                size="xs"
-                variant="fill"
-              >
-                1
-              </Button>
-              <Button
-                className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                color="gray_200"
-                size="xs"
-                variant="fill"
-              >
-                2
-              </Button>
-              <Button
-                className="cursor-pointer font-semibold h-[35px] leading-[normal] rounded text-center text-sm tracking-[-0.50px] w-[35px]"
-                color="gray_200"
-                size="xs"
-                variant="fill"
-              >
-                3
-              </Button>
-              <Button
-                className="flex h-[35px] items-center justify-center rounded w-[35px]"
-                color="gray_200"
-                size="xs"
-                variant="fill"
-              >
-                <Img className="h-5" src="images/img_user.svg" alt="user" />
-              </Button>
-            </div>
-            <Img
-              className="h-[15px] w-[15px]"
-              src="images/img_arrowright.svg"
-              alt="arrowright"
-            />
-          </div>
+          <Pagination postsPerPage={10} />
         </div>
       </div>
     </div>

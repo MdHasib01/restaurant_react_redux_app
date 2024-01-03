@@ -4,9 +4,11 @@ import { useGetDishesQuery } from "features/menus/menuApi";
 import React from "react";
 import Item from "./Item";
 import { Fade } from "react-reveal";
+import { useSelector } from "react-redux";
 
 const Items = ({ selected }) => {
-  const { data: dishes, isLoading, isError } = useGetDishesQuery();
+ const pageNumber = useSelector(state=>state.pagination)
+  const { data: dishes, isLoading, isError } = useGetDishesQuery(pageNumber);
   // decide what to render
   let content = null;
 
